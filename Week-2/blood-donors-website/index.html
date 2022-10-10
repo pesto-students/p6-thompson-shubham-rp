@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
 
     <title>Blood Donors Assemble</title>
   </head>
+
   <body>
     <div class="header">
       <h2>Every Blood Donor is a Hero!</h2>
@@ -16,48 +21,133 @@
 
     <div class="row">
       <div class="leftcolumn">
-        <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Title description, Dec 7, 2017</h5>
-          <div class="fakeimg" style="height: 200px">Image</div>
-          <p>Some text..</p>
-        </div>
-        <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Title description, Sep 2, 2017</h5>
-          <div class="fakeimg" style="height: 200px">Image</div>
-          <p>Some text..</p>
-        </div>
-        <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Title description, Dec 7, 2017</h5>
-          <div class="fakeimg" style="height: 200px">Image</div>
-          <p>Some text..</p>
-        </div>
+        <a href="why-blood-donation-is-important.html">
+          <div class="card">
+            <h2>Why Blood Donation is important ?</h2>
+            <h5>How is it beneficial to you & the society ? Oct 7, 2022</h5>
+            <div class="fakeimg" style="height: 200px">Image</div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut
+              praesentium impedit? Odit reprehenderit fuga quibusdam
+              perspiciatis sint iure id dolorum quasi ipsum vel! Libero ullam
+              modi numquam explicabo sint!
+            </p>
+          </div></a
+        >
+
+        <a href="surprising-benefits-of-blood-donation.html"
+          ><div class="card">
+            <h2>Surprising benefits of Blood Donation</h2>
+            <h5>
+              Donating blood can benefit you & the community in surprising ways,
+              Sep 2, 2022
+            </h5>
+            <div class="fakeimg" style="height: 200px">Image</div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              fugiat quidem a nesciunt nihil aliquam placeat consequuntur omnis?
+              A voluptatum commodi modi cumque eveniet, ducimus blanditiis
+              officiis veritatis! Molestiae, aperiam.
+            </p>
+          </div></a
+        >
+        <a href="blood-types-and-compatibility.html">
+          <div class="card">
+            <h2>Blood Types & Compatibility</h2>
+            <h5>
+              Which blood types can benefit from your donated blood?, Jun 7,
+              2022
+            </h5>
+            <div class="fakeimg" style="height: 200px">Image</div>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Inventore, repudiandae? Reprehenderit nam quaerat architecto dolor
+              cupiditate quam, perspiciatis porro pariatur. Ea culpa iusto
+              voluptatibus, error quaerat enim repudiandae doloremque similique?
+            </p>
+          </div></a
+        >
       </div>
       <div class="rightcolumn">
+        <a href="#registration-form"
+          ><div class="card">
+            <h2>Join our movement</h2>
+            <div class="fakeimg" style="height: 100px">
+              Register As a Donor with our organisation
+            </div>
+            <p>Register as a donor with our organisation</p>
+          </div></a
+        >
+
+        <a href="criteria-for-blood-donation.html"
+          ><div class="card">
+            <h2>Criteria for Blood Donation</h2>
+            <h5>
+              Are you eligible for blood donation ? Read for more details, Oct
+              7, 2022
+            </h5>
+            <div class="fakeimg" style="height: 200px">Image</div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut
+              praesentium impedit? Odit reprehenderit fuga quibusdam
+              perspiciatis sint iure id dolorum quasi ipsum vel! Libero ullam
+              modi numquam explicabo sint!
+            </p>
+          </div></a
+        >
+
         <div class="card">
-          <h2>Join our movement</h2>
-          <div class="fakeimg" style="height: 100px">Image</div>
-          <p>Register as a donor with our organisation</p>
-        </div>
-        <div class="card">
-          <h3>Popular Post</h3>
-          <div class="fakeimg">Image</div>
-          <br />
-          <div class="fakeimg">Image</div>
-          <br />
-          <div class="fakeimg">Image</div>
-        </div>
-        <div class="card">
-          <h3>Follow Me</h3>
+          <h3>Follow Us on Social Media</h3>
           <p>Some text..</p>
         </div>
       </div>
     </div>
 
+    <div class="card" id="registration-form">
+      <h2>Register as a Donor</h2>
+      <form action="/">
+        <label for="fname">First name:</label>
+
+        <input type="text" id="fname" name="fname" />
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname" />
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" />
+        <label for="gender">Gender:</label>
+
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label>
+        <input type="radio" id="others" name="gender" value="others" />
+        <label for="others">Others</label>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+
+        <label for="phone">Phone Number:</label>
+        <input type="number" id="phone" name="phone" />
+
+        <fieldset>
+          <legend>Address</legend>
+          <label for="address">Address:</label>
+          <textarea type="textarea" id="address" name="address"></textarea>
+
+          <label for="pin-code">Pin Code:</label>
+          <input type="number" id="pin-code" name="pin-code" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Medical Details</legend>
+          Blood Group LastDonated(Date) AnyKnownMedicalConditions(Field)
+        </fieldset>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
     <div class="footer">
-      <h2>Footer</h2>
+      <h2>Blood Donor's Org</h2>
     </div>
   </body>
 </html>
