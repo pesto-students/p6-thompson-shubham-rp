@@ -1,0 +1,100 @@
+* {
+    font-family: "Lato";
+  }
+  
+  .sidenav {
+    height: 85%;
+    width: 4rem;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #eee;
+    overflow-x: hidden;
+  }
+  
+  .sidenav i {
+    padding: 2rem 1rem 2rem 1rem;
+    font-size: 2rem;
+    color: grey;
+    display: block;
+  }
+  
+  .main {
+    margin-left: 4rem;
+  }
+  
+  .album-details {
+    height: 30vh;
+    background-color: #333333;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  
+  .cover-image {
+    margin: auto;
+  }
+  
+  .image {
+    width: 24vh;
+    height: 24vh;
+  }
+  
+  .title-details {
+    padding: 1vh 0;
+    color: antiquewhite;
+  }
+  
+  .play-add-more {
+    position: absolute;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td {
+    text-align: left;
+    padding: 16px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+    background-color: #4b6ed6;
+    display: grid;
+    grid-template-columns: 1fr 3fr 6fr;
+  }
+  
+  .footer-image-class {
+    margin: auto;
+  }
+  
+  .footer-image {
+    width: 12vh;
+    height: 12vh;
+  }
+  
+  .footer-album-content {
+    padding: 1vh 0;
+    color: antiquewhite;
+  }
+  
+  .footer-play-controls {
+    margin: auto;
+  }
+  
+  .footer-play-controls i {
+    padding: 0 2rem;
+    font-size: 2.5rem;
+    color: azure;
+  }
+  
