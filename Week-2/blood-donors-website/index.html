@@ -105,46 +105,117 @@
 
     <div class="card" id="registration-form">
       <h2>Register as a Donor</h2>
-      <form action="/">
-        <label for="fname">First name:</label>
+      <div class="registration-form">
+        <form action="/">
+          <label for="fname">First name<span>*</span>:</label>
 
-        <input type="text" id="fname" name="fname" />
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname" />
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="Your name..."
+            required
+          />
+          <label for="lname">Last name<span>*</span>:</label>
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            placeholder="Your last name..."
+            required
+          />
 
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" />
-        <label for="gender">Gender:</label>
+          <label for="age">Age<span>*</span>:</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            placeholder="Age in years"
+            required
+          />
 
-        <input type="radio" id="male" name="gender" value="male" />
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="female" />
-        <label for="female">Female</label>
-        <input type="radio" id="others" name="gender" value="others" />
-        <label for="others">Others</label>
+          <fieldset>
+            <legend>Gender<span>*</span></legend>
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" />
+            <label for="female">Female</label>
+            <input type="radio" id="others" name="gender" value="others" />
+            <label for="others">Others</label>
+          </fieldset>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" />
+          <label for="email">Email<span>*</span>:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email id"
+            required
+          />
 
-        <label for="phone">Phone Number:</label>
-        <input type="number" id="phone" name="phone" />
+          <label for="phone">Phone Number<span>*</span>:</label>
+          <input
+            type="number"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          />
 
-        <fieldset>
-          <legend>Address</legend>
-          <label for="address">Address:</label>
-          <textarea type="textarea" id="address" name="address"></textarea>
+          <fieldset>
+            <label for="address">Address:</label>
+            <textarea
+              type="textarea"
+              id="address"
+              name="address"
+              placeholder="Please enter your complete address"
+            ></textarea>
 
-          <label for="pin-code">Pin Code:</label>
-          <input type="number" id="pin-code" name="pin-code" />
-        </fieldset>
+            <label for="pin-code">Pin Code:</label>
+            <input
+              type="number"
+              id="pin-code"
+              name="pin-code"
+              placeholder="Please enter your pin code"
+            />
+          </fieldset>
 
-        <fieldset>
-          <legend>Medical Details</legend>
-          Blood Group LastDonated(Date) AnyKnownMedicalConditions(Field)
-        </fieldset>
+          <fieldset>
+            <legend>Medical Details<span>*</span></legend>
 
-        <button type="submit">Submit</button>
-      </form>
+            <label for="blood-group">Blood Group<span>*</span></label>
+            <select id="blood-group" name="blood-group" required>
+              <option value="O-negative">O Negative (O -ve)</option>
+              <option value="O-positive">O Positive (O +ve)</option>
+              <option value="A-negative">A Negative (A -ve)</option>
+              <option value="A-positive">A Positive (A +ve)</option>
+              <option value="B-negative">B Negative (B -ve)</option>
+              <option value="B-positive">B Positive (B +ve)</option>
+              <option value="AB-negative">AB Negative (AB -ve)</option>
+              <option value="AB-positive">AB Positive (AB +ve)</option>
+            </select>
+
+            <label for="donation-date">Last Donated On<span>*</span></label>
+            <input
+              id="donation-date"
+              type="date"
+              name="donation-date"
+              required
+            />
+
+            <label for="medical-history">Medical History<span>*</span>:</label>
+            <textarea
+              type="textarea"
+              id="medical-history"
+              name="medical-history"
+              placeholder="Please enter any medical conditions you currently have such as Diabetes, Hypertension. Also info about any surgery, vaccincations, blood transfusions, procedures, hospital admissions in the past 6 months "
+              required
+            ></textarea>
+          </fieldset>
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
     <div class="footer">
       <h2>Blood Donor's Org</h2>
