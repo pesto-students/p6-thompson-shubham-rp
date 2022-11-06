@@ -45,46 +45,89 @@ class PromiseClass {
     }
   }
 
+  // then(onFulfilled, onRejected) {
+  //   if (this.status === "pending") {
+  //     this.onFulfilledCallbacks.push(onFulfilled);
+  //     this.onRejectedCallbacks.push(onRejected);
+  //   }
+
+  //   if (this.status === "fulfilled") {
+  //     onFulfilled(this.value);
+  //   }
+
+  //   if (this.status === "rejected") {
+  //     onRejected(this.value);
+  //   }
+  // }
+
   then(onFulfilled, onRejected) {
-    if (this.status === "pending") {
-      this.onFulfilledCallbacks.push(onFulfilled);
-      this.onRejectedCallbacks.push(onRejected);
-    }
+    return new PromiseClass((handlePromise, resolve, reject) => {
+      if (this.status === "pending") {
+        this.onFulfilledCallbacks.push(() => {
+          try {
+            const fulfilledFromLastPromise = onFulfilled(this.value);
+            if (fulfilledFromLastPromise instanceof Promise) {
+              fulfilledFromLastPromise.then(resolve, reject);
+            } else {
+              resolve(fulfilledFromLastPromise);
+            }
+          } catch (err) {
+            reject(err);
+          }
+        });
+        this.onRejectedCallbacks.push(() => {
+          try {
+            const rejectedFromLastPromise = onRejected(this.value);
+            if (rejectedFromLastPromise instanceof Promise) {
+              rejectedFromLastPromise.then(resolve, reject);
+            } else {
+              reject(rejectedFromLastPromise);
+            }
+          } catch (err) {
+            reject(err);
+          }
+        });
+      }
 
-    if (this.status === "fulfilled") {
-      onFulfilled(this.value);
-    }
+      if (this.status === "fulfilled") {
+        try {
+          const fulfilledFromLastPromise = onFulfilled(this.value);
+          if (fulfilledFromLastPromise instanceof Promise) {
+            fulfilledFromLastPromise.then(resolve, reject);
+          } else {
+            resolve(fulfilledFromLastPromise);
+          }
+        } catch (err) {
+          reject(err);
+        }
+      }
 
-    if (this.status === "rejected") {
-      onRejected(this.value);
-    }
+      if (this.status === "rejected") {
+        try {
+          const rejectedFromLastPromise = onRejected(this.value);
+          if (rejectedFromLastPromise instanceof Promise) {
+            rejectedFromLastPromise.then(resolve, reject);
+          } else {
+            reject(rejectedFromLastPromise);
+          }
+        } catch (err) {
+          reject(err);
+        }
+      }
+    });
   }
 }
 
 // testing code
-const p1 = new PromiseClass((handlePromise, resolve, reject) => {
-  setTimeout(() => {
-    handlePromise(resolve, reject);
-  }, 1000);
+
+let p1 = new PromiseClass((handlePromise, resolve, reject) => {
+  setTimeout(handlePromise(resolve, reject), 2000);
 });
-const p2 = new PromiseClass((handlePromise, resolve, reject) => {
-  setTimeout(() => {
-    handlePromise(resolve, reject);
-  }, 3000);
+p1.then((res) => {
+  console.log(res);
+  return new PromiseClass((handlePromise, resolve, reject) => {
+    setTimeout(handlePromise(resolve, reject), 2000);
+  });
+}).then((res) => {
+  console.log(res.value);
 });
-p1.then(
-  (res) => {
-    console.log(res);
-  },
-  (err) => {
-    console.log(err);
-  }
-);
-p2.then(
-  (res) => {
-    console.log(res);
-  },
-  (err) => {
-    console.log(err);
-  }
-);
