@@ -66,6 +66,7 @@ class PromiseClass {
         this.onFulfilledCallbacks.push(() => {
           try {
             const fulfilledFromLastPromise = onFulfilled(this.value);
+
             if (fulfilledFromLastPromise instanceof Promise) {
               fulfilledFromLastPromise.then(resolve, reject);
             } else {
@@ -92,6 +93,7 @@ class PromiseClass {
       if (this.status === "fulfilled") {
         try {
           const fulfilledFromLastPromise = onFulfilled(this.value);
+
           if (fulfilledFromLastPromise instanceof Promise) {
             fulfilledFromLastPromise.then(resolve, reject);
           } else {
@@ -105,6 +107,7 @@ class PromiseClass {
       if (this.status === "rejected") {
         try {
           const rejectedFromLastPromise = onRejected(this.value);
+
           if (rejectedFromLastPromise instanceof Promise) {
             rejectedFromLastPromise.then(resolve, reject);
           } else {
@@ -121,13 +124,17 @@ class PromiseClass {
 // testing code
 
 let p1 = new PromiseClass((handlePromise, resolve, reject) => {
-  setTimeout(handlePromise(resolve, reject), 2000);
+  setTimeout(() => {
+    handlePromise(resolve, reject);
+  }, 2000);
 });
 p1.then((res) => {
   console.log(res);
   return new PromiseClass((handlePromise, resolve, reject) => {
-    setTimeout(handlePromise(resolve, reject), 2000);
+    setTimeout(() => {
+      handlePromise(resolve, reject);
+    }, 2000);
   });
 }).then((res) => {
-  console.log(res.value);
+  console.log(res);
 });
