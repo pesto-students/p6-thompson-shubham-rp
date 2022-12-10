@@ -44,3 +44,6 @@ function maxContigousSumSubarrayKadane(input) {
 
 console.log(maxContigousSumSubarrayKadane(input));
 maxContigousSumSubarrayKadane(input);
+// Kadane's algorithm
+// TC - O(N)
+// SC - O(1)
