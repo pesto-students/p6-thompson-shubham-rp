@@ -1,4 +1,4 @@
-// given a directed graph, finad all possible from node 0 to n-1
+// given a directed graph, find all possible from node 0 to n-1
 // and return them in any order . source to destination.
 
 // do DFS traversal of a given graph
@@ -55,3 +55,6 @@ let s = 0;
 let d = 3;
 
 printAllPaths(s, d);
+
+// TC - O(N^N) - in worst case, N vertices needs to be traversed from each vertex to reach the destination.
+// SC - O(N^N) - to store all those possible paths in worst case.

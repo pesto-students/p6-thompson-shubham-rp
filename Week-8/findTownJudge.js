@@ -55,3 +55,6 @@ let townGraph = new Graph(V);
 let trust = [[1, 2]];
 
 console.log(findJudge(townGraph, trust));
+
+// TC - O(2V+N) ~ O(V+N) - 'V' --> no of vertices. 'N' --> length of trustList array
+// SC - O(V)
