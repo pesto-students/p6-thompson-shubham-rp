@@ -50,3 +50,6 @@ function recursiveSpiral(input, rowStart, rowEnd, columnStart, columnEnd) {
 recursiveSpiral(input, rowStart, rowEnd, columnStart, columnEnd);
 
 console.log(outputArray);
+
+// TC - O(N)
+// SC - O(N)

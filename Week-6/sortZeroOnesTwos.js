@@ -68,3 +68,35 @@ function sortInputOptimizedWay(input) {
   return input;
 }
 console.log(sortInputOptimizedWay([1, 0, 1, 2, 2]));
+
+// Two pointer technique
+
+function sortInputTwoPointerTechnique(input) {
+  let low = 0;
+  let high = input.length - 1;
+  let mid = 0;
+  let temp = 0;
+
+  while (mid <= high) {
+    if (input[mid] == 0) {
+      temp = input[low];
+      input[low] = input[mid];
+      input[mid] = temp;
+      low++;
+      mid++;
+    } else if (input[mid] == 1) {
+      mid++;
+    } else {
+      temp = input[mid];
+      input[mid] = input[high];
+      input[high] = temp;
+      high--;
+    }
+  }
+  return input;
+}
+
+console.log(sortInputTwoPointerTechnique([1, 0, 1, 2, 2]));
+// Two pointer technique
+// TC - O(N)
+// SC - O(1)
