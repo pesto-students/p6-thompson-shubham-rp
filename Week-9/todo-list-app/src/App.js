@@ -43,8 +43,19 @@ function App() {
   }, [todoList]);
 
   const handleAddToDoItem = (todoItem) => {
+    let date = new Date();
     setTodoList([
-      { key: todoList.length + 1, label: todoItem, isCompleted: false },
+      {
+        key: todoList.length + 1,
+        label: todoItem,
+        isCompleted: false,
+        creationDate: date.toLocaleDateString(),
+        creationTime: date.toLocaleTimeString("en-us", {
+          hour: "numeric",
+          minute: "numeric",
+          hour12: true,
+        }),
+      },
       ...todoList,
     ]);
   };
