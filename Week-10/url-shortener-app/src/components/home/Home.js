@@ -18,6 +18,8 @@ function Home() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isInputWindow, setIsInputWindow] = useState(true);
+  const [isResponseOk, setIsResponseOk] = useState();
+  const [responseData, setResponseData] = useState();
 
   useEffect(() => {
     localStorage.setItem("urlList", JSON.stringify(urlList));
@@ -29,17 +31,21 @@ function Home() {
     axios
       .get("https://api.shrtco.de/v2/shorten?url=" + url)
       .then((response) => {
-        console.log(response.data.result.short_link);
         let date = new Date();
+        let fullShortUrl = response.data.result.full_short_link; // with https://
+        let shortUrl = response.data.result.short_link;
 
+        setIsResponseOk(response.data.ok);
+        setResponseData(shortUrl);
         setTimeout(() => {
           setIsLoading(false);
-          setIsInputWindow(false);
+
           setUrlList([
             {
               key: urlList.length + 1,
               title: title,
-              shortUrl: response.data.result.short_link,
+              fullShortUrl: fullShortUrl,
+              shortUrl: shortUrl,
               originalUrl: url,
               creationDate: date.toLocaleDateString(),
               creationTime: date.toLocaleTimeString("en-us", {
@@ -50,7 +56,14 @@ function Home() {
             },
             ...urlList,
           ]);
-        }, 2000);
+        }, 1500);
+      })
+      .catch((error) => {
+        setTimeout(() => {
+          setIsLoading(false);
+          setIsResponseOk(error.response.data.ok);
+          setResponseData(error.response.data.error_code);
+        }, 1500);
       });
   };
 
@@ -64,7 +77,11 @@ function Home() {
       ) : isLoading ? (
         <Loading />
       ) : (
-        <ResponseHandler onResponseWindowClick={handleResponseWindowClick} />
+        <ResponseHandler
+          onResponseWindowClick={handleResponseWindowClick}
+          responseData={responseData}
+          isResponseOk={isResponseOk}
+        />
       )}
 
       <ShortenedURLList urlList={urlList} />
