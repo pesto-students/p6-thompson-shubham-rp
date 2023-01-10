@@ -8,10 +8,11 @@ function ResponseHandler({
   isResponseOk,
 }) {
   let responseMessage = "";
-  let newUrl = "https://" + responseData;
+  let newUrl = "";
 
   if (isResponseOk) {
     responseMessage = "Here's your shortened URL:";
+    newUrl = "https://" + responseData;
   } else {
     switch (responseData) {
       case 1:

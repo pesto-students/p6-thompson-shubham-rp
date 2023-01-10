@@ -28,6 +28,7 @@ function Home() {
   const handleURLRequest = (url, title) => {
     setIsLoading(true);
     setIsInputWindow(false);
+
     axios
       .get("https://api.shrtco.de/v2/shorten?url=" + url)
       .then((response) => {
@@ -37,39 +38,37 @@ function Home() {
 
         setIsResponseOk(response.data.ok);
         setResponseData(shortUrl);
-        setTimeout(() => {
-          setIsLoading(false);
 
-          setUrlList([
-            {
-              key: urlList.length + 1,
-              title: title,
-              fullShortUrl: fullShortUrl,
-              shortUrl: shortUrl,
-              originalUrl: url,
-              creationDate: date.toLocaleDateString(),
-              creationTime: date.toLocaleTimeString("en-us", {
-                hour: "numeric",
-                minute: "numeric",
-                hour12: true,
-              }),
-            },
-            ...urlList,
-          ]);
-        }, 1500);
+        setIsLoading(false);
+
+        setUrlList([
+          {
+            key: urlList.length + 1,
+            title: title,
+            fullShortUrl: fullShortUrl,
+            shortUrl: shortUrl,
+            originalUrl: url,
+            creationDate: date.toLocaleDateString(),
+            creationTime: date.toLocaleTimeString("en-us", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: true,
+            }),
+          },
+          ...urlList,
+        ]);
       })
       .catch((error) => {
-        setTimeout(() => {
-          setIsLoading(false);
-          setIsResponseOk(error.response.data.ok);
-          setResponseData(error.response.data.error_code);
-        }, 1500);
+        setIsLoading(false);
+        setIsResponseOk(error.response.data.ok);
+        setResponseData(error.response.data.error_code);
       });
   };
 
   const handleResponseWindowClick = () => {
     setIsInputWindow(true);
   };
+
   return (
     <div className="home">
       {isInputWindow ? (
