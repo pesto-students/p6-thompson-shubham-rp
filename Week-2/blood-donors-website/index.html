@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Blood Donors Assemble</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h2>Every Blood Donor is a Hero!</h2>
+    </div>
+
+    <div class="row">
+      <div class="leftcolumn">
+        <a href="why-blood-donation-is-important.html">
+          <div class="card">
+            <h2>Why Blood Donation is important ?</h2>
+            <h5>How is it beneficial to you & the society ? Oct 7, 2022</h5>
+            <div class="fakeimg" style="height: 200px">Image</div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut
+              praesentium impedit? Odit reprehenderit fuga quibusdam
+              perspiciatis sint iure id dolorum quasi ipsum vel! Libero ullam
+              modi numquam explicabo sint!
+            </p>
+          </div></a
+        >
+
+        <a href="surprising-benefits-of-blood-donation.html"
+          ><div class="card">
+            <h2>Surprising benefits of Blood Donation</h2>
+            <h5>
+              Donating blood can benefit you & the community in surprising ways,
+              Sep 2, 2022
+            </h5>
+            <div class="fakeimg" style="height: 200px">Image</div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              fugiat quidem a nesciunt nihil aliquam placeat consequuntur omnis?
+              A voluptatum commodi modi cumque eveniet, ducimus blanditiis
+              officiis veritatis! Molestiae, aperiam.
+            </p>
+          </div></a
+        >
+        <a href="blood-types-and-compatibility.html">
+          <div class="card">
+            <h2>Blood Types & Compatibility</h2>
+            <h5>
+              Which blood types can benefit from your donated blood?, Jun 7,
+              2022
+            </h5>
+            <div class="fakeimg" style="height: 200px">Image</div>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Inventore, repudiandae? Reprehenderit nam quaerat architecto dolor
+              cupiditate quam, perspiciatis porro pariatur. Ea culpa iusto
+              voluptatibus, error quaerat enim repudiandae doloremque similique?
+            </p>
+          </div></a
+        >
+      </div>
+      <div class="rightcolumn">
+        <a href="#registration-form"
+          ><div class="card">
+            <h2>Join our movement</h2>
+            <div class="fakeimg" style="height: 100px">
+              Register As a Donor with our organisation
+            </div>
+            <p>Register as a donor with our organisation</p>
+          </div></a
+        >
+
+        <a href="criteria-for-blood-donation.html"
+          ><div class="card">
+            <h2>Criteria for Blood Donation</h2>
+            <h5>
+              Are you eligible for blood donation ? Read for more details, Oct
+              7, 2022
+            </h5>
+            <div class="fakeimg" style="height: 200px">Image</div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore ut
+              praesentium impedit? Odit reprehenderit fuga quibusdam
+              perspiciatis sint iure id dolorum quasi ipsum vel! Libero ullam
+              modi numquam explicabo sint!
+            </p>
+          </div></a
+        >
+
+        <div class="card">
+          <h3>Follow Us on Social Media</h3>
+          <p>Some text..</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="registration-form">
+      <h2>Register as a Donor</h2>
+      <div class="registration-form">
+        <form action="/">
+          <label for="fname">First name<span>*</span>:</label>
+
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="Your name..."
+            required
+          />
+          <label for="lname">Last name<span>*</span>:</label>
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            placeholder="Your last name..."
+            required
+          />
+
+          <label for="age">Age<span>*</span>:</label>
+          <input
+            type="number"
+            id="age"
+            name="age"
+            placeholder="Age in years"
+            required
+          />
+
+          <fieldset>
+            <legend>Gender<span>*</span></legend>
+            <input type="radio" id="male" name="gender" value="male" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female" />
+            <label for="female">Female</label>
+            <input type="radio" id="others" name="gender" value="others" />
+            <label for="others">Others</label>
+          </fieldset>
+
+          <label for="email">Email<span>*</span>:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email id"
+            required
+          />
+
+          <label for="phone">Phone Number<span>*</span>:</label>
+          <input
+            type="number"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required
+          />
+
+          <fieldset>
+            <label for="address">Address:</label>
+            <textarea
+              type="textarea"
+              id="address"
+              name="address"
+              placeholder="Please enter your complete address"
+            ></textarea>
+
+            <label for="pin-code">Pin Code:</label>
+            <input
+              type="number"
+              id="pin-code"
+              name="pin-code"
+              placeholder="Please enter your pin code"
+            />
+          </fieldset>
+
+          <fieldset>
+            <legend>Medical Details<span>*</span></legend>
+
+            <label for="blood-group">Blood Group<span>*</span></label>
+            <select id="blood-group" name="blood-group" required>
+              <option value="O-negative">O Negative (O -ve)</option>
+              <option value="O-positive">O Positive (O +ve)</option>
+              <option value="A-negative">A Negative (A -ve)</option>
+              <option value="A-positive">A Positive (A +ve)</option>
+              <option value="B-negative">B Negative (B -ve)</option>
+              <option value="B-positive">B Positive (B +ve)</option>
+              <option value="AB-negative">AB Negative (AB -ve)</option>
+              <option value="AB-positive">AB Positive (AB +ve)</option>
+            </select>
+
+            <label for="donation-date">Last Donated On<span>*</span></label>
+            <input
+              id="donation-date"
+              type="date"
+              name="donation-date"
+              required
+            />
+
+            <label for="medical-history">Medical History<span>*</span>:</label>
+            <textarea
+              type="textarea"
+              id="medical-history"
+              name="medical-history"
+              placeholder="Please enter any medical conditions you currently have such as Diabetes, Hypertension. Also info about any surgery, vaccincations, blood transfusions, procedures, hospital admissions in the past 6 months "
+              required
+            ></textarea>
+          </fieldset>
+
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+      <h2>Blood Donor's Org</h2>
+    </div>
+  </body>
+</html>
