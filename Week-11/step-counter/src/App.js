@@ -11,9 +11,11 @@ function App() {
 
   return (
     <div className="App">
+      <div className="text"> You have walked</div>
       <div className="countDisplay">
         {useSelector((state) => state).StepCounter.step}
       </div>
+      <div className="text"> steps today</div>
       <div className="buttons">
         <button
           className="resetStepButton"
@@ -28,7 +30,7 @@ function App() {
           value={Actions.INC_STEP}
           onClick={handleClick}
         >
-          Add Steps
+          Add a Step
         </button>
       </div>
     </div>
