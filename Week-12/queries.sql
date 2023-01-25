@@ -1,0 +1,27 @@
+-- Find the item with minimum weight
+
+SELECT MIN(WEIGHT) FROM ITEMS; -- GETS MINIMUM WEIGHT VALUE 
+
+
+SELECT * FROM ITEMS ORDER BY WEIGHT LIMIT 1; -- GETS THE ITEM WITH MINIMUM WEIGHT
+
+-- Find the different warehouses in “Mumbai”
+
+SELECT WAREHOUSES.WNAME, CITIES.CITY FROM WAREHOUSES,CITIES WHERE CITIES.CITY_ID = WAREHOUSES.CITY_ID AND CITIES.CITY = 'MUMBAI';
+
+-- above one can also be written as --> 
+-- SELECT W.WNAME, C.CITY FROM WAREHOUSES W,CITIES C WHERE C.CITY_ID = W.CITY_ID AND C.CITY = 'MUMBAI'
+
+-- Find the details of items ordered by a customer “Mr. Patil” 
+
+SELECT C.CNAME, O.ONO, O.ODATE, I.DESCRIPTION FROM ITEMS_ORDERS IO, CUSTOMERS C, ORDERS O, ITEMS I WHERE IO.ONO = O.ONO AND O.CNO = C.CNO AND CNAME = 'RAHUL DRAVID';  
+
+-- Find a Warehouse which has maximum stores.
+
+SELECT * FROM WAREHOUSES WHERE WID = (SELECT WID FROM STORES GROUP BY WID ORDER BY COUNT(*) DESC LIMIT 1);
+
+-- Find an item which is ordered for a minimum number of times.
+
+SELECT * FROM ITEMS WHERE ITEMNO = (SELECT ITEMNO FROM ITEMS_ORDERS GROUP BY ITEMNO ORDER BY COUNT(*) LIMIT 1);
+
+-- Find the detailed orders given by each customer.
