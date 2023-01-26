@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  width: 360px;
+  height: 360px;
+  margin: 100px 0;
+  flex-direction: column;
+}
+
+.countDisplay {
+  font-size: 80px;
+  margin: 25px 0;
+}
+
+.buttons {
+  margin: 50px 0;
+}
+
+.text {
+  margin: 20px 0;
+}
+.addStepButton,
+.resetStepButton {
+  margin: 0 16px;
+  width: 128px;
+  height: 64px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.addStepButton:hover {
+  background: green;
+}
+
+.resetStepButton:hover {
+  background: red;
+}
