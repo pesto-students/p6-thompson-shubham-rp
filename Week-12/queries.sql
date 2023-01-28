@@ -12,7 +12,7 @@ SELECT WAREHOUSES.WNAME, CITIES.CITY FROM WAREHOUSES,CITIES WHERE CITIES.CITY_ID
 -- above one can also be written as --> 
 -- SELECT W.WNAME, C.CITY FROM WAREHOUSES W,CITIES C WHERE C.CITY_ID = W.CITY_ID AND C.CITY = 'MUMBAI'
 
--- Find the details of items ordered by a customer “Mr. Patil” 
+-- Find the details of items ordered by a customer “Rahul Dravid” 
 
 SELECT C.CNAME, O.ONO, O.ODATE, I.DESCRIPTION FROM ITEMS_ORDERS IO, CUSTOMERS C, ORDERS O, ITEMS I WHERE IO.ONO = O.ONO AND O.CNO = C.CNO AND CNAME = 'RAHUL DRAVID';  
 
