@@ -1,6 +1,8 @@
+const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const https = require("https");
+const request = require("request");
 require("dotenv").config();
 
 const multipleCitiesList = require("../data/cities");
@@ -11,21 +13,17 @@ function getMultipleCitiesData() {
   for (let i = 0; i < multipleCitiesList.length; i++) {
     let currentURL = `${process.env.API_URL}/weather?q=${multipleCitiesList[i]}&appid=${process.env.API_KEY}&units=metric`;
 
-    https.get(currentURL, (response) => {
-      response
-        .on("data", (chunk) => {
-          chunk = JSON.parse(chunk);
-          if (chunk.cod === 200) {
-            multipleCitiesData.push(chunk);
-          } else {
-            multipleCitiesData.push(
-              `Couldn't get data for ${multipleCitiesList[i]} - Error ${chunk.cod} - ${chunk.message}`
-            );
-          }
-        })
-        .on("error", (e) => {
-          console.log(e);
-        });
+    request(currentURL, (error, response, body) => {
+      if (error) console.log(error);
+
+      if (response.statusCode === 200) {
+        multipleCitiesData.push(JSON.parse(body));
+      } else {
+        body = JSON.parse(body);
+        multipleCitiesData.push(
+          `Couldn't get data for ${multipleCitiesList[i]} - Error ${body.cod} - ${body.message}`
+        );
+      }
     });
   }
 }
@@ -58,21 +56,17 @@ router.get("/cities/:name", (req, res) => {
 
   let currentURL = `${process.env.API_URL}/weather?q=${city}&appid=${process.env.API_KEY}&units=metric`;
 
-  https.get(currentURL, (response) => {
-    response
-      .on("data", (chunk) => {
-        chunk = JSON.parse(chunk);
-        if (chunk.cod === 200) {
-          res.send(chunk);
-        } else {
-          res.send(
-            `There has been some issue - Error ${chunk.cod} - ${chunk.message}`
-          );
-        }
-      })
-      .on("error", (e) => {
-        console.log(e);
-      });
+  request(currentURL, (error, response, body) => {
+    if (error) console.log(error);
+
+    if (response.statusCode === 200) {
+      res.json(JSON.parse(body));
+    } else {
+      body = JSON.parse(body);
+      res.send(
+        `Couldn't get data for ${city} - Error ${body.cod} - ${body.message}`
+      );
+    }
   });
 });
 
